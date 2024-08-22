@@ -130,7 +130,8 @@ func New(ctx context.Context, options ...Option) (*Command, error) {
 		o(&c)
 	}
 
-	name := c.name
+	//name := c.name
+	name := "vk"
 	if name == "" {
 		//name = filepath.Base(os.Args[0])
 		name = "vk"
