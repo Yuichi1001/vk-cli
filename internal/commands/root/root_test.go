@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/virtual-kubelet/node-cli/opts"
-	"github.com/virtual-kubelet/node-cli/provider"
-	"github.com/virtual-kubelet/node-cli/provider/mock"
+	"github.com/Yuichi1001/vk-cli/opts"
+	"github.com/Yuichi1001/vk-cli/provider"
+	"github.com/Yuichi1001/vk-cli/provider/mock"
 	"gotest.tools/assert"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

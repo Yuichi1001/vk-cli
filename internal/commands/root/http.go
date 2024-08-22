@@ -26,9 +26,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/Yuichi1001/vk-cli/opts"
+	"github.com/Yuichi1001/vk-cli/provider"
 	"github.com/pkg/errors"
-	"github.com/virtual-kubelet/node-cli/opts"
-	"github.com/virtual-kubelet/node-cli/provider"
 	"github.com/virtual-kubelet/virtual-kubelet/log"
 	"github.com/virtual-kubelet/virtual-kubelet/node/api"
 )

@@ -18,8 +18,8 @@ import (
 	"flag"
 	"os"
 
+	"github.com/Yuichi1001/vk-cli/opts"
 	"github.com/spf13/pflag"
-	"github.com/virtual-kubelet/node-cli/opts"
 	"k8s.io/klog"
 )
 

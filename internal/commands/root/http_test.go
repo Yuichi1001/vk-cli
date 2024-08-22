@@ -14,9 +14,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Yuichi1001/vk-cli/provider"
+	"github.com/Yuichi1001/vk-cli/provider/mock"
 	"github.com/pkg/errors"
-	"github.com/virtual-kubelet/node-cli/provider"
-	"github.com/virtual-kubelet/node-cli/provider/mock"
 	"gotest.tools/assert"
 	"k8s.io/apiserver/pkg/authentication/authenticator"
 	"k8s.io/apiserver/pkg/authentication/user"

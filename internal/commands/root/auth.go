@@ -31,7 +31,7 @@ import (
 	authenticationclient "k8s.io/client-go/kubernetes/typed/authentication/v1"
 	authorizationclient "k8s.io/client-go/kubernetes/typed/authorization/v1"
 
-	"github.com/virtual-kubelet/node-cli/opts"
+	"github.com/Yuichi1001/vk-cli/opts"
 )
 
 const (
