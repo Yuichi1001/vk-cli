@@ -18,7 +18,6 @@ import (
 	"context"
 	"os"
 	"os/signal"
-	"path/filepath"
 	"syscall"
 
 	"github.com/Yuichi1001/vk-cli/internal/commands/providers"
@@ -35,7 +34,7 @@ type Option func(*Command)
 
 // Command builds the CLI command
 type Command struct {
-	cmd                *cobra.Command
+	Cmd                *cobra.Command
 	s                  *provider.Store
 	name               string
 	version            string
@@ -133,7 +132,8 @@ func New(ctx context.Context, options ...Option) (*Command, error) {
 
 	name := c.name
 	if name == "" {
-		name = filepath.Base(os.Args[0])
+		//name = filepath.Base(os.Args[0])
+		name = "vk"
 	}
 
 	flagOpts := c.opts
@@ -145,12 +145,12 @@ func New(ctx context.Context, options ...Option) (*Command, error) {
 		flagOpts.Version = c.k8sVersion
 	}
 
-	c.cmd = root.NewCommand(name, c.s, flagOpts)
+	c.Cmd = root.NewCommand(name, c.s, flagOpts)
 	for _, f := range c.persistentFlags {
-		c.cmd.PersistentFlags().AddFlagSet(f)
+		c.Cmd.PersistentFlags().AddFlagSet(f)
 	}
 
-	c.cmd.PersistentPreRunE = func(_ *cobra.Command, _ []string) error {
+	c.Cmd.PersistentPreRunE = func(_ *cobra.Command, _ []string) error {
 		for _, f := range c.persistentPreRunCb {
 			if err := f(); err != nil {
 				return err
@@ -159,13 +159,13 @@ func New(ctx context.Context, options ...Option) (*Command, error) {
 		return nil
 	}
 
-	c.cmd.AddCommand(version.NewCommand(c.version, c.buildTime), providers.NewCommand(c.s))
+	c.Cmd.AddCommand(version.NewCommand(c.version, c.buildTime), providers.NewCommand(c.s))
 	return &c, nil
 }
 
 // Run executes the command with the provided args.
 // If args is nil then os.Args[1:] is used
 func (c *Command) Run(ctx context.Context, args ...string) error {
-	c.cmd.SetArgs(args)
-	return c.cmd.ExecuteContext(ctx)
+	c.Cmd.SetArgs(args)
+	return c.Cmd.ExecuteContext(ctx)
 }
